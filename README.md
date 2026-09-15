@@ -2,6 +2,23 @@
 
 This project is a full-stack booking application for SHE Academy.
 
+## 🚨 URGENT: FIX FOR "WHITE BLANK PAGE"
+If you are seeing a white page after uploading your ZIP or pushing to GitHub, it is because **browsers cannot run source code (.tsx files) directly.**
+
+### How to fix it (Local Build):
+1. **Unzip** the file on your computer.
+2. Open your terminal and run:
+   ```bash
+   npm install
+   npm run build
+   ```
+3. Upload **ONLY the contents of the `dist` folder** to your web host.
+
+### How to fix it (GitHub Pages):
+1. Go to your GitHub Repository -> **Settings** -> **Pages**.
+2. Under "Build and deployment", change the **Source** to **GitHub Actions**.
+3. The automatic script I included (`.github/workflows/static.yml`) will now handle everything for you.
+
 ## Hosting Options
 
 ### 1. GitHub Pages (Static Hosting)

@@ -65,6 +65,27 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Helpful check for direct source access -->
+    <script type="text/javascript">
+      if (window.location.protocol === 'file:' || !window.location.hostname.includes('localhost')) {
+        setTimeout(function() {
+          if (!document.getElementById('root').hasChildNodes()) {
+            document.getElementById('root').innerHTML = `
+              <div style="font-family: sans-serif; padding: 40px; text-align: center; color: #333;">
+                <h2 style="color: #c5a47e;">White Page Detected</h2>
+                <p>It looks like you are trying to run the <strong>source code</strong> directly in your browser.</p>
+                <p style="background: #f4f4f4; padding: 15px; border-radius: 8px; display: inline-block; font-size: 14px;">
+                  To fix this, you must run <strong>npm run build</strong> and upload the <strong>dist</strong> folder.
+                </p>
+                <p style="font-size: 13px; color: #666; margin-top: 20px;">
+                  Please refer to the <strong>README.md</strong> file for step-by-step hosting instructions.
+                </p>
+              </div>
+            `;
+          }
+        }, 3000);
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
