@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# SHE Academy Booking System
 
-# Run and deploy your AI Studio app
+This project is a full-stack booking application for SHE Academy.
 
-This contains everything you need to run your app locally.
+## Hosting Options
 
-View your app in AI Studio: https://ai.studio/apps/398ae925-4b7f-45c5-a332-cf3459433a32
+### 1. GitHub Pages (Static Hosting)
+This project is configured to work on GitHub Pages out of the box.
+- The `base` path in `vite.config.ts` is set to `./` for compatibility with sub-directory URLs (e.g., `username.github.io/repo-name/`).
+- A GitHub Action is included in `.github/workflows/static.yml` to automatically build and deploy the site whenever you push to the `main` branch.
+- **Note**: Static hosting does NOT run the `server.ts` backend. However, the app is designed to fall back to direct Google Sheets synchronization from the browser.
 
-## Run Locally
+### 2. Railway / Render / Heroku (Full-Stack Hosting)
+To use the full-stack features (like the domain-masking security headers or advanced Stripe integrations), use a host that supports Node.js.
+- **Build Command**: `npm run build`
+- **Start Command**: `npm start`
+- **Port**: 3000
 
-**Prerequisites:**  Node.js
+## Environment Variables
+Ensure you set the following environment variables in your hosting provider's dashboard:
+- `STRIPE_SECRET_KEY`: Your Stripe secret key.
+- `GOOGLE_SCRIPT_URL`: Your Google Apps Script deployment URL.
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Local Development
+```bash
+npm install
+npm run dev
+```

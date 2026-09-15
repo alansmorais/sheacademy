@@ -234,10 +234,23 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
+    // Production: Serve static files from the 'dist' directory
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
+    
+    // Serve static assets with caching
+    app.use(express.static(distPath, {
+      maxAge: '1d',
+      index: false
+    }));
+
+    // Fallback all other routes to index.html for SPA routing
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(404).send('Build artifacts not found. Please run "npm run build" first.');
+      }
     });
   }
 
