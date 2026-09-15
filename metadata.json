@@ -1,0 +1,6 @@
+{
+  "name": "SHE Academy",
+  "description": "SHE. Academy offers conscious bodywork, intimacy education, somatic healing, pelvic health, and professional workshops for women and men in a safe, consent-led space.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
