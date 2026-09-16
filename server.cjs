@@ -213,7 +213,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = import_path.default.join(process.cwd(), "dist");
+    const distPath = import_path.default.join(process.cwd(), "docs");
     app.use(import_express.default.static(distPath, {
       maxAge: "1d",
       index: false
