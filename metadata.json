@@ -1,0 +1,6 @@
+{
+  "name": "sheacademy",
+  "description": "Somatic bodywork and intimacy education platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
